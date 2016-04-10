@@ -110,7 +110,7 @@ From the confusion matrix and the low out of sample accuracy, we can already hav
 
 ### Random Forest modeling via rf
 
-```{r rf, echo=TRUE, cache=TRUE}
+```{r rf, echo=TRUE, cache=TRUE, message=FALSE, warning=FALSE}
 set.seed(4242)
 timeMod2 <- system.time(mod2 <- train(classe~ ., data = trainSet,  method="rf", 
                                       trControl=trainControl(method = "cv", number = 4)))
