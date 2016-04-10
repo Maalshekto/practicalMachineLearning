@@ -140,17 +140,22 @@ confMod3
 From the confusion matrix, we can observe that model has a correct accuracy.
 
 ### Comparisons
+
 ```{r comparison, echo=TRUE}
 model_name <- c("CART", "Random Forest", "Gradient Boost")
 training_time <- c(timeMod1[3], timeMod2[3], timeMod3[3])
 in_sample_accuracies <- c(round(mod1$results[1,2], 3), 
                           round(mod2$results[1,2], 3),
                           round(mod3$results[1,2], 3))
+in_sample_error <- 1-in_sample_accuracies
 out_sample_accuracies <- c(round(confMod1$overall[1], 3), 
                               round(confMod2$overall[1], 3), 
                               round(confMod3$overall[1], 3))
+out_sample_error <- 1-out_sample_accuracies
 recap <- data.frame(model_name, training_time, in_sample_accuracies, out_sample_accuracies)
+recap2 <- data.frame(model_name, training_time, in_sample_error, out_sample_error)
 recap
+recap2
 ```     
 
 CART model is the fastest one to train but its accuracy is really low for both in/out samples. It can be discarded without any mercy.  
