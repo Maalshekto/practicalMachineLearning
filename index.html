@@ -172,18 +172,6 @@ confMod1 &lt;- confusionMatrix(predMod1, validationSet$classe)</code></pre>
 <pre class="r"><code>set.seed(4242)
 timeMod2 &lt;- system.time(mod2 &lt;- train(classe~ ., data = trainSet,  method=&quot;rf&quot;, 
                                       trControl=trainControl(method = &quot;cv&quot;, number = 4)))</code></pre>
-<pre><code>## Loading required package: randomForest</code></pre>
-<pre><code>## Warning: package 'randomForest' was built under R version 3.2.4</code></pre>
-<pre><code>## randomForest 4.6-12</code></pre>
-<pre><code>## Type rfNews() to see new features/changes/bug fixes.</code></pre>
-<pre><code>## 
-## Attaching package: 'randomForest'</code></pre>
-<pre><code>## The following object is masked from 'package:ggplot2':
-## 
-##     margin</code></pre>
-<pre><code>## The following object is masked from 'package:dplyr':
-## 
-##     combine</code></pre>
 <pre class="r"><code>predMod2 &lt;- predict(mod2, validationSet[, -c(dim(validationSet)[2])])
 confMod2 &lt;- confusionMatrix(predMod2, validationSet$classe)</code></pre>
 <pre class="r"><code>confMod2</code></pre>
